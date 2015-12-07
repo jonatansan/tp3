@@ -19,7 +19,7 @@ public class Test {
     {false, false, false, false, false}},
             5,
             5);
-    
+
     public static Grille grille_test0_result = new Grille(new boolean[][]{{false, false, false, false, false},
     {false, false, false, false, false},
     {false, true, true, true, false},
@@ -27,7 +27,7 @@ public class Test {
     {false, false, false, false, false}},
             5,
             5);
-    
+
     public static Grille grille_test1 = new Grille(new boolean[][]{{true, true, false, true, true},
     {true, false, false, false, true},
     {false, false, false, false, false},
@@ -35,7 +35,7 @@ public class Test {
     {true, true, false, true, true}},
             5,
             5);
-    
+
     public static Grille grille_test1_result = new Grille(new boolean[][]{{true, true, false, true, true},
     {true, true, false, true, true},
     {false, false, false, false, false},
@@ -43,64 +43,62 @@ public class Test {
     {true, true, false, true, true}},
             5,
             5);
-    
+
     public static Grille grille_test2 = new Grille(new boolean[][]{
-    {false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, true, true, true, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false},
-    {false, true, false, false, false, false, false, true, false, false},
-    {false, true, false, false, false, false, false, true, false, false},
-    {false, true, false, false, false, false, false, true, false, false},
-    {false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, true, true, true, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false}},
+        {false, false, false, false, false, false, false, false, false, false},
+        {false, false, false, true, true, true, false, false, false, false},
+        {false, false, false, false, false, false, false, false, false, false},
+        {false, true, false, false, false, false, false, true, false, false},
+        {false, true, false, false, false, false, false, true, false, false},
+        {false, true, false, false, false, false, false, true, false, false},
+        {false, false, false, false, false, false, false, false, false, false},
+        {false, false, false, true, true, true, false, false, false, false},
+        {false, false, false, false, false, false, false, false, false, false},
+        {false, false, false, false, false, false, false, false, false, false}},
             10,
             10);
-        
+
     public static Grille grille_test2_result = new Grille(new boolean[][]{
-    {false, false, false, false, true, false, false, false, false, false},
-    {false, false, false, false, true, false, false, false, false, false},
-    {false, false, false, false, true, false, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false},
-    {true, true, true, false, false, false, true, true, true, false},
-    {false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, false, true, false, false, false, false, false},
-    {false, false, false, false, true, false, false, false, false, false},
-    {false, false, false, false, true, false, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false}},
+        {false, false, false, false, true, false, false, false, false, false},
+        {false, false, false, false, true, false, false, false, false, false},
+        {false, false, false, false, true, false, false, false, false, false},
+        {false, false, false, false, false, false, false, false, false, false},
+        {true, true, true, false, false, false, true, true, true, false},
+        {false, false, false, false, false, false, false, false, false, false},
+        {false, false, false, false, true, false, false, false, false, false},
+        {false, false, false, false, true, false, false, false, false, false},
+        {false, false, false, false, true, false, false, false, false, false},
+        {false, false, false, false, false, false, false, false, false, false}},
             10,
             10);
-    
+
     public static Grille grille_test3 = new Grille(new boolean[][]{
-    {false, false, false, false, true, false, false, false, false, false},
-    {false, false, false, false, true, false, false, false, false, false},
-    {false, false, false, false, true, false, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false},
-    {true, true, true, false, false, false, true, true, true, false},
-    {false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, false, true, false, false, false, false, false},
-    {false, false, false, false, true, false, false, false, false, false},
-    {false, false, false, false, true, false, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false}},
+        {false, false, false, false, true, false, false, false, false, false},
+        {false, false, false, false, true, false, false, false, false, false},
+        {false, false, false, false, true, false, false, false, false, false},
+        {false, false, false, false, false, false, false, false, false, false},
+        {true, true, true, false, false, false, true, true, true, false},
+        {false, false, false, false, false, false, false, false, false, false},
+        {false, false, false, false, true, false, false, false, false, false},
+        {false, false, false, false, true, false, false, false, false, false},
+        {false, false, false, false, true, false, false, false, false, false},
+        {false, false, false, false, false, false, false, false, false, false}},
             10,
             10);
-    
+
     public static Grille grille_test3_result = new Grille(new boolean[][]{
-    {false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, true, true, true, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false},
-    {false, true, false, false, false, false, false, true, false, false},
-    {false, true, false, false, false, false, false, true, false, false},
-    {false, true, false, false, false, false, false, true, false, false},
-    {false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, true, true, true, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false},
-    {false, false, false, false, false, false, false, false, false, false}},
+        {false, false, false, false, false, false, false, false, false, false},
+        {false, false, false, true, true, true, false, false, false, false},
+        {false, false, false, false, false, false, false, false, false, false},
+        {false, true, false, false, false, false, false, true, false, false},
+        {false, true, false, false, false, false, false, true, false, false},
+        {false, true, false, false, false, false, false, true, false, false},
+        {false, false, false, false, false, false, false, false, false, false},
+        {false, false, false, true, true, true, false, false, false, false},
+        {false, false, false, false, false, false, false, false, false, false},
+        {false, false, false, false, false, false, false, false, false, false}},
             10,
             10);
-    
-    
 
     public static ArrayList<Grille> arrayTests = new ArrayList<Grille>() {
         {
@@ -110,7 +108,7 @@ public class Test {
             add(grille_test1_result);
             add(grille_test2);
             add(grille_test2_result);
-            add(grille_test3); 
+            add(grille_test3);
             add(grille_test3_result);
         }
     };

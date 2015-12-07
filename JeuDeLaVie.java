@@ -15,12 +15,12 @@ public class JeuDeLaVie {
         boolean erreur = false;
         int compteurErreur = 0;
         int compteurTest = 0;
-        
+
         //Tests séquentiels
         for (int i = 0; i < Test.arrayTests.size(); i++) {
 
             Grille grilleDeJeu = Test.arrayTests.get(i);
-            Grille grilleDeJeu_result = new Grille(new boolean[grilleDeJeu.x][grilleDeJeu.y], grilleDeJeu.x, grilleDeJeu.y); 
+            Grille grilleDeJeu_result = new Grille(new boolean[grilleDeJeu.x][grilleDeJeu.y], grilleDeJeu.x, grilleDeJeu.y);
 
             methode_seq(grilleDeJeu, grilleDeJeu_result, Test.arrayTests.get(i).x, Test.arrayTests.get(i).y);
 
@@ -36,13 +36,13 @@ public class JeuDeLaVie {
         //Tests parallèles
         for (Integer nbThread : nbThreads) {
             for (int j = 0; j < Test.arrayTests.size(); j++) {
-                
+
                 Grille grilleDeJeu = Test.arrayTests.get(j);
-                Grille grilleDeJeu_result = new Grille(new boolean[grilleDeJeu.x][grilleDeJeu.y], grilleDeJeu.x, grilleDeJeu.y); 
-                
+                Grille grilleDeJeu_result = new Grille(new boolean[grilleDeJeu.x][grilleDeJeu.y], grilleDeJeu.x, grilleDeJeu.y);
+
                 methode_par(nbThread, grilleDeJeu, grilleDeJeu_result, Test.arrayTests.get(j).x, Test.arrayTests.get(j).y);
-                
-                if (!grilleDeJeu_result.equal(Test.arrayTests.get(j+1))) {
+
+                if (!grilleDeJeu_result.equal(Test.arrayTests.get(j + 1))) {
                     System.out.println("Erreur, la grille_test" + j / 2 + " a été mal calculée ! (méthode parallèle avec " + nbThread + " threads)");
                     erreur = true;
                     ++compteurErreur;
@@ -60,16 +60,16 @@ public class JeuDeLaVie {
 
     //Fonction benchmark
     private static void runBenchmark() {
-        
+
         int grilleSize = 30000;
         Grille grilleDeJeu = new Grille(new boolean[grilleSize][grilleSize], grilleSize, grilleSize);
         Grille grilleDeJeu_result = new Grille(new boolean[grilleSize][grilleSize], grilleSize, grilleSize);
         grilleDeJeu.populate(); // Met des valeurs dans la grille, histoire de ne pas avoir que des Faux
-        
+
         long moyenneSeq = 0;
-        
+
         System.out.println("Methode\t\tTemps (ms)");
-        
+
         for (int i = 0; i < 3; i++) {
 
             long start = System.currentTimeMillis();
@@ -80,7 +80,6 @@ public class JeuDeLaVie {
 
         System.out.println("Séquentiel:\t" + (moyenneSeq / 3) + " (ms)");
 
-        
         for (Integer nbThread : nbThreads) {
             long moyennePar = 0;
             for (int j = 0; j < 3; j++) {
@@ -90,7 +89,7 @@ public class JeuDeLaVie {
                 //System.out.println("Temps d'exécution " + nbThreads.get(i) + " threads : " + (end - start) + " ms."); 
                 moyennePar += end - start;
             }
-            System.out.println(nbThread + " threads:\t" + (moyennePar / 3) + " (ms)"); 
+            System.out.println(nbThread + " threads:\t" + (moyennePar / 3) + " (ms)");
         }
     }
 
@@ -200,7 +199,7 @@ public class JeuDeLaVie {
                 runBenchmark();
                 break;
             default:
-                System.out.println("Argument \""+ args[0] +"\" inconnu. L'argument doit être \"test\" ou \"benchmark\".");
+                System.out.println("Argument \"" + args[0] + "\" inconnu. L'argument doit être \"test\" ou \"benchmark\".");
         }
     }
 }

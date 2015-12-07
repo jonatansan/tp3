@@ -9,25 +9,25 @@
  * @author jonathan
  */
 public class Grille {
-    
-    public boolean[][] grille; 
+
+    public boolean[][] grille;
     public int x;
     public int y;
-    
-    Grille(boolean[][] _grille, int _x, int _y){
-        this.grille = _grille; 
-        this.x = _x; 
+
+    Grille(boolean[][] _grille, int _x, int _y) {
+        this.grille = _grille;
+        this.x = _x;
         this.y = _y;
     }
-    
-    public void populate(){
+
+    public void populate() {
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                grille[i][j] = (i+j%2 == 0);
+                grille[i][j] = (i + j % 2 == 0);
             }
         }
     }
-    
+
     public boolean equal(Grille g) {
         assert (this.x == g.x && this.y == g.y);
         for (int i = 0; i < x; i++) {
@@ -40,5 +40,5 @@ public class Grille {
 
         return true;
     }
-    
+
 }
