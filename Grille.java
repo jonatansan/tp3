@@ -28,4 +28,17 @@ public class Grille {
         }
     }
     
+    public boolean equal(Grille g) {
+        assert (this.x == g.x && this.y == g.y);
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                if (this.grille[i][j] != g.grille[i][j]) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+    
 }
