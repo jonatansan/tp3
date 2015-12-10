@@ -187,6 +187,9 @@ public class JeuDeLaVie {
      * @param args "benchmark" ou "test"
      */
     public static void main(String[] args) {
+        for (String arg : args) {
+            System.out.println(arg);
+        }
 
         switch (args[0]) {
             case "test":
