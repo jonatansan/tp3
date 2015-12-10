@@ -15,9 +15,11 @@ default: classes
 classes: $(CLASSES:.java=.class)
 
 benchmark:
+	classes
 	java JeuDeLaVie benchmark
 
 test:
+	classes
 	java JeuDeLaVie test
 
 
