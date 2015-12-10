@@ -14,14 +14,12 @@ default: classes
 
 classes: $(CLASSES:.java=.class)
 
-benchmark:
-	classes
+benchmark: classes
 	java JeuDeLaVie benchmark
 
-test:
-	classes
+test: classes
 	java JeuDeLaVie test
 
 
 clean: 
-		$(RM) *.class
+		$(RM) *.class *~
