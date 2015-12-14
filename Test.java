@@ -99,6 +99,22 @@ public class Test {
         {false, false, false, false, false, false, false, false, false, false}},
             10,
             10);
+    
+        public static Grille grille_test4 = new Grille(new boolean[][]{{false, false, false, false, false},
+    {false, false, false, false, false},
+    {false, false, true, true, false},
+    {false, false, true, true, false},
+    {false, false, false, false, false}},
+            5,
+            5);
+
+    public static Grille grille_test4_result = new Grille(new boolean[][]{{false, false, false, false, false},
+    {false, false, false, false, false},
+    {false, false, true, true, false},
+    {false, false, true, true, false},
+    {false, false, false, false, false}},
+            5,
+            5);
 
     public static ArrayList<Grille> arrayTests = new ArrayList<Grille>() {
         {
@@ -110,6 +126,8 @@ public class Test {
             add(grille_test2_result);
             add(grille_test3);
             add(grille_test3_result);
+            add(grille_test4);
+            add(grille_test4_result); 
         }
     };
 }

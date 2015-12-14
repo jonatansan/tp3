@@ -10,6 +10,20 @@ public class JeuDeLaVie {
 
     private static final ArrayList<Integer> nbThreads = new ArrayList<>(Arrays.asList(1, 2, 4, 8, 16, 32, 64, 128, 256));
 
+    private static void printGrille(Grille g) {
+        for (int i = 0; i < g.x; i++) {
+            for (int j = 0; j < g.y; j++) {
+                if (g.grille[i][j]) {
+                    System.out.print("1 ");
+                } else {
+                    System.out.print("0 ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
     //Fonction tests
     private static void runTests() {
         boolean erreur = false;
@@ -17,10 +31,17 @@ public class JeuDeLaVie {
         int compteurTest = 0;
 
         //Tests séquentiels
+        System.out.println("__TESTS__");
         for (int i = 0; i < Test.arrayTests.size(); i++) {
 
             Grille grilleDeJeu = Test.arrayTests.get(i);
             Grille grilleDeJeu_result = new Grille(new boolean[grilleDeJeu.x][grilleDeJeu.y], grilleDeJeu.x, grilleDeJeu.y);
+
+            System.out.println("Grille de test_" + i / 2 + " :");
+            printGrille(grilleDeJeu);
+
+            System.out.println("Grille attendu :");
+            printGrille(Test.arrayTests.get(i + 1));
 
             methode_seq(grilleDeJeu, grilleDeJeu_result, Test.arrayTests.get(i).x, Test.arrayTests.get(i).y);
 
@@ -28,33 +49,26 @@ public class JeuDeLaVie {
                 System.out.println("Erreur, la grille_test" + i / 2 + " a été mal calculée ! (méthode séquentielle)");
                 erreur = true;
                 ++compteurErreur;
+                printGrille(grilleDeJeu_result);
+            } else {
+                System.out.println("Calcul ok pour méthode séquentielle !");
             }
-            ++i;
-            ++compteurTest;
-        }
+            
+            for (Integer nbThread : nbThreads) {
+                grilleDeJeu_result = new Grille(new boolean[grilleDeJeu.x][grilleDeJeu.y], grilleDeJeu.x, grilleDeJeu.y);
+                methode_par(nbThread, grilleDeJeu, grilleDeJeu_result, Test.arrayTests.get(i).x, Test.arrayTests.get(i).y);
 
-        //Tests parallèles
-        for (Integer nbThread : nbThreads) {
-            for (int j = 0; j < Test.arrayTests.size(); j++) {
-
-                Grille grilleDeJeu = Test.arrayTests.get(j);
-                Grille grilleDeJeu_result = new Grille(new boolean[grilleDeJeu.x][grilleDeJeu.y], grilleDeJeu.x, grilleDeJeu.y);
-
-                methode_par(nbThread, grilleDeJeu, grilleDeJeu_result, Test.arrayTests.get(j).x, Test.arrayTests.get(j).y);
-
-                if (!grilleDeJeu_result.equal(Test.arrayTests.get(j + 1))) {
-                    System.out.println("Erreur, la grille_test" + j / 2 + " a été mal calculée ! (méthode parallèle avec " + nbThread + " threads)");
+                if (!grilleDeJeu_result.equal(Test.arrayTests.get(i + 1))) {
+                    System.out.println("Erreur, la grille_test" + i / 2 + " a été mal calculée ! (méthode parallèle avec " + nbThread + " threads)");
                     erreur = true;
                     ++compteurErreur;
+                } else {
+                    System.out.println("Calcul ok pour " + nbThread + "!");
                 }
-                ++j;
-                ++compteurTest;
             }
-        }
-        if (!erreur) {
-            System.out.println("Tous les " + compteurTest + " tests passent !");
-        } else {
-            System.out.println(compteurErreur + "/" + compteurTest + " tests n'ont pas passés !");
+            System.out.println("------------------------------------------");
+            ++i;
+            ++compteurTest;
         }
     }
 
@@ -67,7 +81,7 @@ public class JeuDeLaVie {
         grilleDeJeu.populate(); // Met des valeurs dans la grille, histoire de ne pas avoir que des Faux
 
         long moyenneSeq = 0;
-	System.out.println("Taille grille : " + grilleSize); 
+        System.out.println("Taille grille : " + grilleSize);
         System.out.println("Methode\t\tTemps (ms)");
 
         for (int i = 0; i < 3; i++) {
